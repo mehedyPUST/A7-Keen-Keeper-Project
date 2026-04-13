@@ -10,7 +10,7 @@ const Friends = () => {
     return (
         <div className='w-11/12 mx-auto mt-5'>
             <h3 className='font-bold text-2xl mb-3'>Your Friends</h3>
-            <div className='grid grid-cols-4  gap-10 '>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
                 {
                     friends.map(friend => {
                         return (
