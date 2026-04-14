@@ -14,7 +14,7 @@ const Footer = () => {
 
             <h5 className='font-medium text-white'>Social Links</h5>
 
-            <ul className='flex gap-2 items-center'>
+            <ul className='flex gap-4 items-center'>
                 <li className='bg-white p-2 rounded-full '><Link to='/'><AiFillInstagram /></Link></li>
                 <li className='bg-white p-2 rounded-full '><Link to='/'><FaFacebookSquare /></Link></li>
                 <li className='bg-white p-2 rounded-full '><Link to='/'><FaSquareXTwitter /></Link></li>
@@ -22,7 +22,7 @@ const Footer = () => {
 
             <div className='flex items-center justify-between font-thin text-sm w-full mt-5 text-white'>
                 <p>© 2026 KeenKeeper. All rights reserved.</p>
-                <div className='flex  items-center gap-3'>
+                <div className='flex  items-center gap-5'>
                     <p className='cursor-pointer'>Privacy Policy</p>
                     <p className='cursor-pointer'>Terms of Service</p>
                     <p className='cursor-pointer'>Cookies</p>

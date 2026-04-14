@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Bodrul Alam",
-        "picture": "https://i.ibb.co.com/dqnztr5/bokul.jpg",
+        "picture": "https://i.ibb.co.com/prjfvB9d/bokul.jpg",
         "email": "bokul@example.com",
         "days_since_contact": 12,
         "status": "overdue",
@@ -17,7 +17,7 @@
     {
         "id": 2,
         "name": "Aminul Islam",
-        "picture": "https://i.ibb.co.com/qYYQSZqQ/amin.jpg",
+        "picture": "https://i.ibb.co.com/cSDpPZKm/amin.jpg",
         "email": "amin@example.com",
         "days_since_contact": 5,
         "status": "on-track",
@@ -31,8 +31,8 @@
     },
     {
         "id": 3,
-        "name": "Rakibul Islam (Mamu)",
-        "picture": "https://i.ibb.co.com/Wv66XpZY/mamu.jpg",
+        "name": "Rakibul Islam",
+        "picture": "https://i.ibb.co.com/mFtjjFhR/himu.jpg",
         "email": "mamu@example.com",
         "days_since_contact": 18,
         "status": "overdue",
@@ -47,7 +47,7 @@
     {
         "id": 4,
         "name": "Imtiaz Ahmed",
-        "picture": "https://i.ibb.co.com/R4ZVLxg7/imtiaz.jpg",
+        "picture": "https://i.ibb.co.com/WC86Dpr/imtiaz.jpg",
         "email": "imtiaz@example.com",
         "days_since_contact": 8,
         "status": "almost due",
@@ -62,7 +62,7 @@
     {
         "id": 5,
         "name": "Mainul Islam",
-        "picture": "https://i.ibb.co.com/Fqc8HhJq/mainul.jpg",
+        "picture": "https://i.ibb.co.com/wNzVgVv7/mainul.jpg",
         "email": "mainul@example.com",
         "days_since_contact": 3,
         "status": "on-track",
@@ -77,7 +77,7 @@
     {
         "id": 6,
         "name": "Maksudur Rahman",
-        "picture": "https://i.ibb.co.com/jjhqYZC/maksud.jpg",
+        "picture": "https://i.ibb.co.com/MDNLwrxj/maksud.jpg",
         "email": "maksud@example.com",
         "days_since_contact": 21,
         "status": "overdue",
@@ -92,7 +92,7 @@
     {
         "id": 7,
         "name": "Mustafizur Rahman",
-        "picture": "https://i.ibb.co.com/5gdZLXzJ/mustafiz.jpg",
+        "picture": "https://i.ibb.co.com/jv55fJYC/mustafiz.jpg",
         "email": "mustafiz@example.com",
         "days_since_contact": 9,
         "status": "almost due",
@@ -107,7 +107,7 @@
     {
         "id": 8,
         "name": "Nahid Hasan",
-        "picture": "https://i.ibb.co.com/Hfd3d3gJ/nahid.jpg",
+        "picture": "https://i.ibb.co.com/8DKMkJ64/nahid.jpg",
         "email": "nahid@example.com",
         "days_since_contact": 2,
         "status": "on-track",
@@ -122,7 +122,7 @@
     {
         "id": 9,
         "name": "Rakib Hossain",
-        "picture": "https://i.ibb.co.com/nMY6yQ1w/rakib.jpg",
+        "picture": "https://i.ibb.co.com/S7M95Lfd/rakib.jpg",
         "email": "rakib@example.com",
         "days_since_contact": 14,
         "status": "overdue",
@@ -137,7 +137,7 @@
     {
         "id": 10,
         "name": "Rasel Ahmed",
-        "picture": "https://i.ibb.co.com/XZpk4mDY/rasel.jpg",
+        "picture": "https://i.ibb.co.com/svnRJW4Y/rasel.jpg",
         "email": "rasel@example.com",
         "days_since_contact": 6,
         "status": "on-track",
@@ -151,8 +151,8 @@
     },
     {
         "id": 11,
-        "name": "Shamim Hossain",
-        "picture": "https://i.ibb.co.com/fzzYBxPh/antu.jpg",
+        "name": "Nazmussadat Antu",
+        "picture": "https://i.ibb.co.com/YFyH7FMD/antu.jpg",
         "email": "antu@example.com",
         "days_since_contact": 11,
         "status": "almost due",
@@ -166,8 +166,8 @@
     },
     {
         "id": 12,
-        "name": "Antu (Nickname)",
-        "picture": "https://i.ibb.co.com/xKM3GXYP/mamu.jpg",
+        "name": "Shamim Reza",
+        "picture": "https://i.ibb.co.com/Q34kXNbm/shamim.jpg",
         "email": "antu2@example.com",
         "days_since_contact": 4,
         "status": "on-track",
