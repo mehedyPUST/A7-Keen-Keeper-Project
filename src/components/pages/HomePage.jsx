@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import HomePageHeading from '../HomePageHeading/HomePageHeading';
 import CategoryCounterCards from '../categorycounterCards/CategoryCounterCards';
 import Friends from '../friends/Friends';
+import { RiseLoader } from 'react-spinners';
 
 
 const HomePage = () => {
@@ -9,7 +10,12 @@ const HomePage = () => {
         <div>
             <HomePageHeading></HomePageHeading>
             <CategoryCounterCards></CategoryCounterCards>
-            <Friends></Friends>
+            <Suspense fallback={<div className='flex items-center justify-center'>
+                <RiseLoader color='#10B981' />
+            </div>}>
+                <Friends></Friends>
+            </Suspense>
+
         </div>
     );
 };
