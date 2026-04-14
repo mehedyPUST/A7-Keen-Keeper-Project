@@ -68,7 +68,18 @@ const FriendDetails = () => {
                     </div>
                 </div>
 
-                <div className='w-full bg-red-100 p-4 mt-4 mb-4'>goal</div>
+                <div className='w-full bg-white shadow-md p-4 mt-4 mb-4 rounded-md '>
+                    <div className='flex items-center justify-between'>
+                        <p className='font-semibold'>Relationship Goal </p>
+                        <button className='btn'>Edit</button>
+                    </div>
+                    <p><span className='text-gray-600'>Connect Every</span> <span className='font-semibold'>30 Days</span></p>
+
+
+                </div>
+
+
+
                 <div className='bg-green-100 shadow-md p-4' >
                     <h3>Quick Check-In</h3>
                     <div className='w-full bg-amber-100 p-4  grid grid-cols-3 mt-4 gap-4'>
