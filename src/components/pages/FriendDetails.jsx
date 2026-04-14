@@ -13,6 +13,15 @@ const FriendDetails = () => {
     const expectedFriend = friends.find(friend => friend.id === Number(friendId))
     console.log("expectedFriend khujo", expectedFriend)
 
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString("en-Us", {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+        });
+    }
+
     return (
         <div className='grid grid-cols-9 gap-4 w-11/12 mx-auto '>
 
@@ -21,7 +30,7 @@ const FriendDetails = () => {
                 <div className=' bg-white rounded-xl shadow-sm flex flex-col items-center p-4'>
                     <img className='w-20 h-20 rounded-full' src={expectedFriend.picture} alt={""} />
                     <h2>{expectedFriend.name}</h2>
-                    <p>{expectedFriend.days_since_contact} days ago</p>
+
 
                     <div className='flex gap-2 items-center'>
                         {expectedFriend.tags.map(tag => <p className='badge badge-success'>{tag}</p>)}
@@ -41,9 +50,22 @@ const FriendDetails = () => {
 
             <div className='col-span-6'>
                 <div className='grid grid-cols-3 gap-4'>
-                    <div className='bg-pink-100'> card 1</div>
-                    <div className='bg-green-100'> card 2</div>
-                    <div className='bg-red-100'> card 3</div>
+                    <div className='bg-pink-100 p-3 flex flex-col items-center justify-center rounded-md'>
+
+                        <h3 className='font-bold text-2xl'>{expectedFriend.days_since_contact}</h3>
+                        <p>Days Since Contact</p>
+                    </div>
+                    <div className='bg-pink-100 p-3 flex flex-col items-center justify-center rounded-md'>
+
+                        <h3 className='font-bold text-2xl'>{expectedFriend.goal}</h3>
+                        <p>Goal (Days) </p>
+                    </div>
+
+                    <div className='bg-pink-100 p-3 flex flex-col items-center justify-center rounded-md'>
+
+                        <h3 className='font-bold text-2xl'>{formatDate(expectedFriend.next_due_date)}</h3>
+                        <p>Next Due</p>
+                    </div>
                 </div>
 
                 <div className='w-full bg-red-100 p-4 mt-4 mb-4'>goal</div>
