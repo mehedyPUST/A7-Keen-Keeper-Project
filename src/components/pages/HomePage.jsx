@@ -11,7 +11,7 @@ const HomePage = () => {
             <HomePageHeading></HomePageHeading>
             <CategoryCounterCards></CategoryCounterCards>
             <Suspense fallback={<div className='flex items-center justify-center'>
-                <RiseLoader color='#10B981' />
+                <RiseLoader color='#15803d' />
             </div>}>
                 <Friends></Friends>
             </Suspense>
