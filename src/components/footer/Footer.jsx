@@ -20,12 +20,12 @@ const Footer = () => {
                 <li className='bg-white p-2 rounded-full '><Link to='/'><FaSquareXTwitter /></Link></li>
             </ul>
 
-            <div className='flex items-center justify-between font-thin text-sm w-full mt-5 text-white'>
+            <div className='flex flex-col md:flex-row items-center justify-between font-thin text-sm w-full mt-5 text-white gap-3 md:gap-0'>
                 <p>© 2026 KeenKeeper. All rights reserved.</p>
-                <div className='flex  items-center gap-5'>
-                    <p className='cursor-pointer'>Privacy Policy</p>
-                    <p className='cursor-pointer'>Terms of Service</p>
-                    <p className='cursor-pointer'>Cookies</p>
+                <div className='flex items-center gap-5 flex-wrap justify-center'>
+                    <p className='cursor-pointer hover:underline transition'>Privacy Policy</p>
+                    <p className='cursor-pointer hover:underline transition'>Terms of Service</p>
+                    <p className='cursor-pointer hover:underline transition'>Cookies</p>
                 </div>
             </div>
 
