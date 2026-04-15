@@ -1,6 +1,7 @@
 import React, { useContext, useMemo } from "react";
 import { TimelineContextCreate } from "../../context/TimelineContextCreator";
 import { PieChart, Pie, ResponsiveContainer, Tooltip } from "recharts";
+import CustomTooltip from "../customTooltip/CustomToolTip";
 
 const Stats = () => {
     const { timeline } = useContext(TimelineContextCreate);
@@ -24,17 +25,7 @@ const Stats = () => {
         return { data: chartData, totalInteractions: timeline.length };
     }, [timeline]);
 
-    const CustomTooltip = ({ active, payload }) => {
-        if (active && payload && payload.length) {
-            return (
-                <div className="bg-gray-900 text-white px-4 py-3 rounded-2xl text-sm shadow-xl">
-                    <p className="font-semibold">{payload[0].name}</p>
-                    <p>Count: {payload[0].value}</p>
-                </div>
-            );
-        }
-        return null;
-    };
+
 
     return (
         <div className="w-11/12 mx-auto py-10">

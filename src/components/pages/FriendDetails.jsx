@@ -2,9 +2,9 @@ import React, { useState, useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { TimelineContextCreate } from '../../context/TimelineContextCreator';
-import { FiPhoneCall } from 'react-icons/fi';
-import { MdOutlineTextsms } from 'react-icons/md';
-import { CiVideoOn } from 'react-icons/ci';
+import VoiceCallIcon from '../voiceCallIcon/VoiceCallIcon';
+import TextMsgIcon from '../textMsgIcon/TextMsgIcon';
+import VideoCallIcon from '../videoCallIcon/VideoCallIcon';
 
 const FriendDetails = () => {
     const { friendId } = useParams();
@@ -159,9 +159,7 @@ const FriendDetails = () => {
                                 onClick={interactionHandlerVoiceCall}
                                 className="bg-white hover:shadow-xl transition-all p-8 rounded-xl flex flex-col items-center gap-4 group"
                             >
-                                <div className="w-16 h-16 bg-blue-100 group-hover:bg-blue-200 rounded-2xl flex items-center justify-center text-3xl transition">
-                                    <FiPhoneCall />
-                                </div>
+                                <VoiceCallIcon></VoiceCallIcon>
                                 <p className="font-medium">Voice Call</p>
                             </button>
 
@@ -169,9 +167,7 @@ const FriendDetails = () => {
                                 onClick={interactionHandlerTextMsg}
                                 className="bg-white hover:shadow-xl transition-all p-8 rounded-xl flex flex-col items-center gap-4 group"
                             >
-                                <div className="w-16 h-16 bg-purple-100 group-hover:bg-purple-200 rounded-2xl flex items-center justify-center text-3xl transition">
-                                    <MdOutlineTextsms />
-                                </div>
+                                <TextMsgIcon></TextMsgIcon>
                                 <p className="font-medium">Text Message</p>
                             </button>
 
@@ -179,9 +175,7 @@ const FriendDetails = () => {
                                 onClick={interactionHandlerVideoCall}
                                 className="bg-white hover:shadow-xl transition-all p-8 rounded-xl flex flex-col items-center gap-4 group"
                             >
-                                <div className="w-16 h-16 bg-rose-100 group-hover:bg-rose-200 rounded-2xl flex items-center justify-center text-3xl transition">
-                                    <CiVideoOn />
-                                </div>
+                                <VideoCallIcon></VideoCallIcon>
                                 <p className="font-medium">Video Call</p>
                             </button>
                         </div>
@@ -201,9 +195,9 @@ const FriendDetails = () => {
                                 {history.map((info, index) => (
                                     <div key={index} className="flex items-center gap-4 bg-gray-50 p-5 rounded-2xl">
                                         <div className="text-2xl">
-                                            {info.type === "call" && "📞"}
-                                            {info.type === "text" && "💬"}
-                                            {info.type === "video" && "🎥"}
+                                            {info.type === "call" && <VoiceCallIcon></VoiceCallIcon>}
+                                            {info.type === "text" && <TextMsgIcon></TextMsgIcon>}
+                                            {info.type === "video" && <VideoCallIcon></VideoCallIcon>}
                                         </div>
                                         <div>
                                             <p className="font-medium capitalize">

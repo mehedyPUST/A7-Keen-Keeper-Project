@@ -53,9 +53,9 @@ const TimeLine = () => {
                                     <p className="text-gray-500 mt-1">{formatDate(item.date)}</p>
                                 </div>
 
-                                <div className="text-xs bg-emerald-100 text-emerald-700 px-4 py-2 rounded-2xl font-medium">
+                                {/* <div className="text-xs bg-emerald-100 text-emerald-700 px-4 py-2 rounded-2xl font-medium">
                                     Completed
-                                </div>
+                                </div> */}
                             </div>
                         ))}
                 </div>
