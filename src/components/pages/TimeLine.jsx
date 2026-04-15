@@ -51,7 +51,7 @@ const TimeLine = () => {
     return (
         <div className="w-11/12 mx-auto py-10">
             <div className="flex justify-between items-center mb-10 flex-wrap gap-4">
-                <h2 className="text-4xl font-bold text-gray-900">Interaction Timeline</h2>
+                <h2 className="text-4xl font-bold text-emerald-900 ">Timeline</h2>
 
                 <div className="relative">
                     <select

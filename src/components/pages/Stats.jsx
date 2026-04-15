@@ -31,7 +31,7 @@ const Stats = () => {
     return (
         <div className="w-11/12 mx-auto py-10">
             <div className="mb-12">
-                <h1 className="text-4xl font-bold text-gray-900">Friendship Analytics</h1>
+                <h1 className="text-4xl font-bold text-emerald-900">Friendship Analytics</h1>
                 <p className="text-gray-600 mt-2">
                     Total Interactions: <span className="font-semibold text-emerald-600">{totalInteractions}</span>
                 </p>
