@@ -5,6 +5,7 @@ import { TimelineContextCreate } from '../../context/TimelineContextCreator';
 import VoiceCallIcon from '../voiceCallIcon/VoiceCallIcon';
 import TextMsgIcon from '../textMsgIcon/TextMsgIcon';
 import VideoCallIcon from '../videoCallIcon/VideoCallIcon';
+import { MdOutlineTextsms } from 'react-icons/md';
 
 const FriendDetails = () => {
     const { friendId } = useParams();
@@ -54,7 +55,8 @@ const FriendDetails = () => {
 
     const interactionHandlerTextMsg = () => {
         if (!expectedFriend) return;
-        toast.success(`Text Sent to ${expectedFriend.name}`);
+        toast.success(`  Text Sent to ${expectedFriend.name}`);
+
         setHistory(prev => [...prev, { ...expectedFriend, type: "text" }]);
         setTimeline(prev => [...prev, createTimelineEvent("text", expectedFriend)]);
     };
