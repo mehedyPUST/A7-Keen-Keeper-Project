@@ -1,10 +1,65 @@
-import React from 'react';
+import { useContext } from "react";
+import { TimelineContextCreate } from "../../context/TimelineContextCreator";
+import { FiPhoneCall } from "react-icons/fi";
+import { MdOutlineTextsms } from "react-icons/md";
+import { CiVideoOn } from "react-icons/ci";
 
 const TimeLine = () => {
+    const { timeline } = useContext(TimelineContextCreate);
+
+    const formatDate = (date) => {
+        return new Date(date).toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+        });
+    };
+
+    const getIcon = (type) => {
+        if (type === "call") return <FiPhoneCall className="text-3xl text-blue-600" />;
+        if (type === "text") return <MdOutlineTextsms className="text-3xl text-purple-600" />;
+        if (type === "video") return <CiVideoOn className="text-3xl text-rose-600" />;
+    };
+
     return (
-        <div className='text-justify w-11/12 mx-auto'>
-            <h2 className='text-2xl font-bold text-center'>TimeLine</h2>
-            timeline Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere impedit harum laudantium incidunt fugit voluptas assumenda. Quia, amet officiis voluptate qui quaerat laudantium repudiandae omnis aliquam accusantium modi iste obcaecati possimus animi, non nisi! Quae, aut soluta doloribus labore accusamus facilis! Eaque dolor aut tenetur architecto blanditiis maxime dolorum eligendi sit accusantium, fuga excepturi eveniet consectetur fugit eos laudantium temporibus repudiandae dolorem, praesentium quis magni. Rerum repudiandae ratione cupiditate sint et nesciunt. Doloribus deserunt error sapiente assumenda qui quia tempora? Deserunt nulla autem nam quas labore numquam atque aperiam nihil tenetur dolorem dicta nobis recusandae placeat, molestiae fugit? Sed odit magnam maiores! Consequatur nihil aspernatur reiciendis aliquam nulla ratione neque fugiat, itaque similique sed qui expedita placeat facere quos cupiditate magni doloribus obcaecati sunt nostrum quae maiores reprehenderit. Repudiandae eligendi nobis quisquam asperiores eveniet veniam rerum sed accusantium tenetur, dolor adipisci nemo et praesentium autem ratione repellendus temporibus molestias. Nihil, accusamus dolor! Cumque tempora nam totam quam illo, dicta omnis? Quae reiciendis minima cumque at officia nobis officiis, consectetur culpa minus atque magnam inventore nemo et quaerat vero. Ipsum, dolores fuga? Ab provident aut perspiciatis impedit architecto in, minima error quae voluptatum fugiat quaerat nemo eos alias incidunt beatae placeat voluptatibus. Optio adipisci maiores harum quae quibusdam distinctio, totam neque voluptatum delectus voluptatibus eius minus consequatur non laudantium, perspiciatis labore. Ut, minima modi. Incidunt, corrupti odio nulla quisquam saepe ab atque ut animi nihil minus consectetur et totam dolor quo illo placeat dolorem neque nemo? Cumque voluptate dolor ad accusamus ipsum minima ducimus ratione est temporibus, distinctio cum sint id culpa quasi nulla consequuntur aspernatur? Sequi labore itaque omnis temporibus, accusantium totam mollitia delectus, eius impedit earum magnam voluptates quis deleniti repellendus nesciunt non rerum sed exercitationem adipisci fugiat expedita consectetur numquam! A, amet illo? Consequuntur atque optio praesentium blanditiis, minus eaque quae dolor nulla cumque ipsum esse. Obcaecati ipsum doloremque esse similique, ipsam at sed accusamus, dolorum quia repellendus quod sunt nesciunt tempore! Voluptas, reprehenderit optio doloremque sit aut autem vitae similique cupiditate corporis fuga dolore. Minima sunt sapiente aspernatur beatae quo fuga veritatis saepe culpa inventore, illum odit nihil a neque enim soluta ducimus ab veniam, aliquid perferendis voluptas recusandae! Facilis, unde. Error reiciendis animi aspernatur dolore rerum autem voluptatibus ullam, alias nam quam corporis quae et labore corrupti commodi fugit quas, amet numquam delectus ea est. Molestias mollitia ex ab ipsam itaque voluptate obcaecati similique tenetur, reiciendis est laborum et nulla minima incidunt quaerat autem eveniet hic sit? Amet eaque voluptas accusamus laborum dolorum, maiores necessitatibus alias numquam? Dolores ducimus consectetur voluptates nihil quibusdam dolore placeat, ipsum, nemo accusamus perspiciatis, debitis explicabo odio maiores doloremque ratione ab expedita maxime velit? Adipisci vero, ipsum enim incidunt fugit delectus, accusamus veritatis sed rem labore eaque nobis hic facere harum quaerat, alias quo fuga voluptates minima voluptatem necessitatibus iure a? Fuga adipisci, nobis vero explicabo inventore ipsum iste alias debitis rem delectus illum accusantium architecto voluptas minima totam maiores voluptate. Voluptate qui veniam consequatur adipisci velit similique autem ipsam, nihil sapiente aspernatur? Unde soluta amet natus saepe, nemo vero nostrum ea delectus voluptate quaerat esse dicta voluptas? Ducimus, corrupti. Voluptatem repellendus corrupti quidem obcaecati quasi, nesciunt inventore voluptate maiores fugit expedita qui nemo? Vel illum ipsum cumque mollitia, quasi quam asperiores expedita officia vitae hic repellendus, iste porro. Nesciunt minus sequi voluptas ab perspiciatis eaque nostrum aspernatur aliquid sed! Vero dolorem non quidem numquam consectetur corporis libero sed! Sint, vel dolorum, recusandae eius dolorem iure quod quas dolores blanditiis dolor ipsam commodi quia! Voluptatem recusandae, exercitationem, quam doloribus eligendi consequatur voluptatum repellendus earum non et dolore, dolor a autem quis. Molestiae porro nisi nostrum veritatis, autem laboriosam fugiat, placeat quisquam maxime enim obcaecati quae accusantium! Ipsa magnam optio nobis architecto, libero maxime earum, molestiae molestias totam incidunt omnis debitis voluptates? Ipsum, aut corporis alias facere, in illo praesentium qui recusandae dolore dolorem voluptatibus omnis velit similique unde impedit, distinctio ad non repellendus perspiciatis! Soluta at qui amet, temporibus excepturi ipsum voluptas recusandae id, fugit distinctio delectus! Soluta accusantium voluptatum recusandae. Suscipit officia neque, vero iste sint, nisi, nam ad laudantium molestias quasi ratione facere incidunt ipsum. Dolor optio reprehenderit facilis totam architecto dolore tempora eum tenetur earum autem! Quidem, temporibus, quasi iste laborum facere dolorem iure obcaecati aut enim perspiciatis ipsa numquam doloribus amet consectetur, corporis corrupti voluptatibus recusandae reiciendis fugit consequatur pariatur deserunt? Dicta labore minima sint eveniet repudiandae! Odit aliquid dolorum voluptate ea, deleniti voluptatibus possimus ratione corporis magni sed nam praesentium quas laudantium maxime perspiciatis accusantium! Nobis asperiores quis dolore similique obcaecati eveniet quo doloremque odit fugiat voluptas recusandae tempora, commodi deserunt molestiae non animi dolor voluptatem incidunt ea harum eum! Ullam voluptatum similique veritatis ea nostrum quod quisquam dignissimos unde rerum expedita eos cupiditate earum vel, neque illum delectus quo veniam molestiae, laboriosam itaque, aliquam eius dolor. Placeat libero cumque non earum suscipit quisquam, vel similique nemo esse nesciunt dolorem minima praesentium illo doloribus cupiditate ipsa inventore quo quod dolore dignissimos asperiores ea accusantium! Assumenda ullam iusto officiis blanditiis fuga. Error eaque sequi aspernatur quasi facere, aperiam velit laudantium suscipit sunt, animi, consequatur voluptatibus dolorum amet. Quis libero corrupti voluptatum molestias. Esse soluta repudiandae, ratione rem, cumque distinctio veniam adipisci alias deserunt, dignissimos impedit quam officia blanditiis. Cupiditate, deserunt ipsum omnis doloribus sequi ad voluptatem nisi sed accusamus aut dignissimos eum consequatur, eos obcaecati soluta officia laboriosam nobis fugit ipsa sit ut perferendis itaque perspiciatis consectetur? Aspernatur consequuntur atque est facilis cupiditate similique repellat blanditiis eaque quibusdam quas corrupti eum non iste impedit doloribus, excepturi enim voluptatibus, nihil officia! Tenetur inventore perferendis accusamus assumenda nam ut quisquam provident, iure asperiores alias, non quo architecto, necessitatibus recusandae excepturi maxime expedita maiores fuga tempore aperiam facere rerum. Corrupti rem recusandae debitis qui exercitationem minima illum quaerat perspiciatis. Iste accusamus at reprehenderit. Maiores, illum! Quam voluptate nam dolorem nihil nemo iusto fugiat eveniet dolor accusamus, esse voluptatem impedit maiores magnam vel fuga, omnis sapiente aliquid voluptatum, error fugit voluptas. Cumque ut, soluta officiis officia id nihil repellat. Tenetur, eius!
+        <div className="w-11/12 mx-auto py-10">
+            <h2 className="text-4xl font-bold mb-10 text-gray-900">Interaction Timeline</h2>
+
+            {timeline.length === 0 ? (
+                <div className="bg-white rounded-3xl p-16 text-center shadow">
+                    <div className="text-6xl mb-6">📅</div>
+                    <h3 className="text-2xl font-semibold mb-2">No interactions yet</h3>
+                    <p className="text-gray-500">Start calling, texting, or video calling your friends to see the timeline here.</p>
+                </div>
+            ) : (
+                <div className="space-y-6">
+                    {timeline
+                        .slice()
+                        .reverse()
+                        .map((item) => (
+                            <div
+                                key={item.id}
+                                className="bg-white rounded-3xl p-8 shadow hover:shadow-xl transition flex items-center gap-6"
+                            >
+                                <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center">
+                                    {getIcon(item.type)}
+                                </div>
+
+                                <div className="flex-1">
+                                    <p className="text-xl">
+                                        <span className="font-semibold capitalize">{item.type}</span> with{" "}
+                                        <span className="font-medium">{item.name}</span>
+                                    </p>
+                                    <p className="text-gray-500 mt-1">{formatDate(item.date)}</p>
+                                </div>
+
+                                <div className="text-xs bg-emerald-100 text-emerald-700 px-4 py-2 rounded-2xl font-medium">
+                                    Completed
+                                </div>
+                            </div>
+                        ))}
+                </div>
+            )}
         </div>
     );
 };

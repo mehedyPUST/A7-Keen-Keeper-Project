@@ -2,29 +2,48 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const FriendsCard = ({ friend }) => {
-    const { tags, status, days_since_contact, email, picture, name, id } = friend;
-    const formatStatus = (status) => {
-        return status
-            .split('-')
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-            .join('-');
+    const { tags, status, days_since_contact, picture, name, id } = friend;
+
+    const getStatusColor = (status) => {
+        if (status === 'Overdue') return 'bg-red-100 text-red-700 border-red-200';
+        if (status === 'Almost Due') return 'bg-amber-100 text-amber-700 border-amber-200';
+        if (status === 'On-Track') return 'bg-emerald-100 text-emerald-700 border-emerald-200';
+        return 'bg-gray-100 text-gray-700 border-gray-200';
     };
 
     return (
-        <Link to={`/friend-details/${friend.id}`} className=' bg-white rounded-xl shadow-xl flex flex-col items-center p-5 space-y-2'>
-            <img className='w-20 h-20 rounded-full' src={picture} alt={name} />
-            <h2 className='text-xl font-semibold'>{name}</h2>
-            <p className='text-gray-500'>{days_since_contact} Days Ago</p>
+        <Link
+            to={`/friend-details/${id}`}
+            className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-emerald-200"
+        >
+            <div className="p-6 flex flex-col items-center text-center">
+                <div className="relative">
+                    <img
+                        className="w-24 h-24 rounded-full object-cover ring-2 ring-emerald-100 group-hover:ring-emerald-200 transition"
+                        src={picture}
+                        alt={name}
+                    />
 
-            <div className='flex gap-2 items-center'>
-                {tags.map(tag => <p className='badge badge-success'>{tag}</p>)}
+                </div>
+
+                <h2 className="mt-5 text-xl font-semibold text-gray-800">{name}</h2>
+                <p className="text-gray-500 text-sm mt-1">{days_since_contact} Days Ago</p>
+
+                <div className="flex flex-wrap gap-2 mt-4 justify-center">
+                    {tags.map((tag, i) => (
+                        <span
+                            key={i}
+                            className="px-4 py-1 bg-emerald-50 text-emerald-700 text-xs font-medium rounded-full"
+                        >
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+
+                <div className={`mt-6 px-4 py-2 rounded-3xl text-sm font-semibold border ${getStatusColor(status)}`}>
+                    {status}
+                </div>
             </div>
-
-            <div className={`badge badge-soft px-4 py-3 font-bold ${status === 'Overdue' ? 'badge-error' : status === 'Almost Due' ? 'badge-warning' : status === "On-Track" ? "badge-success" : 'badge-info'} `}>
-                {status}
-            </div>
-
-
         </Link>
     );
 };

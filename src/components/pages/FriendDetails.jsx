@@ -1,145 +1,226 @@
-import React, { useState } from 'react';
-import { CiVideoOn } from 'react-icons/ci';
+import React, { useState, useContext } from 'react';
+import { useLoaderData, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { TimelineContextCreate } from '../../context/TimelineContextCreator';
 import { FiPhoneCall } from 'react-icons/fi';
 import { MdOutlineTextsms } from 'react-icons/md';
-import { useLoaderData, useParams } from 'react-router';
-import { toast } from 'react-toastify';
+import { CiVideoOn } from 'react-icons/ci';
 
 const FriendDetails = () => {
-    const { friendId } = useParams()
-    console.log("params dekhaw", friendId)
-
+    const { friendId } = useParams();
     const friends = useLoaderData();
-    console.log(friends, "friend detals")
-    const expectedFriend = friends.find(friend => friend.id === Number(friendId))
-    console.log("expectedFriend khujo", expectedFriend)
+    const expectedFriend = friends?.find(friend => friend.id === Number(friendId));
+    const { tags, status, days_since_contact, picture, name, id, goal, next_due_date, bio, contactPreference } = expectedFriend;
+    const getStatusColor = (status) => {
+        if (status === 'Overdue') return 'bg-red-100 text-red-700 border-red-200';
+        if (status === 'Almost Due') return 'bg-amber-100 text-amber-700 border-amber-200';
+        if (status === 'On-Track') return 'bg-emerald-100 text-emerald-700 border-emerald-200';
+        return 'bg-gray-100 text-gray-700 border-gray-200';
+    };
+
+    const { setTimeline } = useContext(TimelineContextCreate);
+
+    const [history, setHistory] = useState([]);
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
-        return date.toLocaleDateString("en-Us", {
+        return date.toLocaleDateString("en-US", {
             month: "short",
             day: "numeric",
             year: "numeric"
         });
-    }
-    const [history, setHistory] = useState([]);
+    };
+
+    const createTimelineEvent = (type, friend) => ({
+        id: Date.now(),
+        type,
+        name: friend.name,
+        date: new Date().toISOString(),
+    });
 
     const interactionHandlerVoiceCall = () => {
+        if (!expectedFriend) return;
         toast.success(`You Called ${expectedFriend.name}`);
-        setHistory(previous => [...previous, expectedFriend])
-        console.log(history, "history theke")
-    }
+        setHistory(prev => [...prev, { ...expectedFriend, type: "call" }]);
+        setTimeline(prev => [...prev, createTimelineEvent("call", expectedFriend)]);
+    };
+
     const interactionHandlerVideoCall = () => {
+        if (!expectedFriend) return;
         toast.success(`You Made Video Call With ${expectedFriend.name}`);
-        setHistory(previous => [...previous, expectedFriend])
-    }
+        setHistory(prev => [...prev, { ...expectedFriend, type: "video" }]);
+        setTimeline(prev => [...prev, createTimelineEvent("video", expectedFriend)]);
+    };
 
     const interactionHandlerTextMsg = () => {
-        toast.success(`Text Sent to  ${expectedFriend.name}`);
-        setHistory(previous => [...previous, expectedFriend])
+        if (!expectedFriend) return;
+        toast.success(`Text Sent to ${expectedFriend.name}`);
+        setHistory(prev => [...prev, { ...expectedFriend, type: "text" }]);
+        setTimeline(prev => [...prev, createTimelineEvent("text", expectedFriend)]);
+    };
+
+    if (!expectedFriend) {
+        return (
+            <div className="flex justify-center items-center min-h-screen">
+                <p className="text-lg text-gray-600">Loading friend details...</p>
+            </div>
+        );
     }
 
-
-
     return (
-        <div className='grid grid-cols-9 gap-4 w-11/12 mx-auto '>
+        <div className="w-11/12 mx-auto py-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                {/* Left Sidebar - Profile */}
+                <div className="lg:col-span-4">
+                    <div className="bg-white rounded-2xl shadow-xl p-8 sticky top-25">
+                        <div className="flex flex-col items-center text-center">
+                            <img
+                                className="w-32 h-32 rounded-full object-cover ring-3 ring-emerald-100"
+                                src={picture}
+                                alt={name}
+                            />
+                            <h2 className="mt-6 text-3xl font-semibold text-gray-900">
+                                {name}
+                            </h2>
 
-            <div className='col-span-3'>
-
-                <div className=' bg-white rounded-xl shadow-sm flex flex-col items-center p-4'>
-                    <img className='w-20 h-20 rounded-full' src={expectedFriend.picture} alt={""} />
-                    <h2>{expectedFriend.name}</h2>
+                            <div className={`mt-6 px-4 py-2 rounded-3xl text-sm font-semibold border ${getStatusColor(status)}`}>
+                                {status}
+                            </div>
 
 
-                    <div className='flex gap-2 items-center'>
-                        {expectedFriend.tags.map(tag => <p className='badge badge-success'>{tag}</p>)}
+                            <div className="flex flex-wrap gap-2 mt-4 justify-center">
+                                {tags?.map((tag, index) => (
+                                    <span
+                                        key={index}
+                                        className="px-5 py-1.5 bg-emerald-100 text-emerald-700 text-sm font-medium rounded-2xl"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <div className='mt-4 space-y-2 text-gray-500'>
+                                <p className='italic'>"{bio}"</p>
+                                <p> Preferred: {contactPreference}</p>
+                            </div>
+                        </div>
+
+                        <div className="mt-10 space-y-3">
+                            <button className="w-full py-4 bg-gray-100 hover:bg-gray-200 transition rounded-2xl font-medium">
+                                Snooze 2 weeks
+                            </button>
+                            <button className="w-full py-4 bg-gray-100 hover:bg-gray-200 transition rounded-2xl font-medium">
+                                Archive
+                            </button>
+                            <button className="w-full py-4 bg-red-50 hover:bg-red-100 text-red-600 transition rounded-2xl font-medium">
+                                Delete Friend
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Main Content */}
+                <div className="lg:col-span-8 space-y-8">
+                    {/* Stats Cards */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div className="bg-white rounded-xl p-8 shadow-xl text-center flex flex-col items-center justify-center">
+                            <h3 className="text-4xl font-bold text-gray-800">{days_since_contact}</h3>
+                            <p className="text-gray-500 mt-2">Days Since Contact</p>
+                        </div>
+                        <div className="bg-white rounded-xl p-8 shadow-xl text-center flex flex-col items-center justify-center">
+                            <h3 className="text-4xl font-bold text-gray-800">{goal}</h3>
+                            <p className="text-gray-500 mt-2">Goal (Days)</p>
+                        </div>
+                        <div className="bg-white rounded-xl p-8 shadow-xl text-center flex flex-col items-center justify-center">
+                            <h3 className="text-4xl font-bold text-gray-800">{formatDate(next_due_date)}</h3>
+                            <p className="text-gray-500 mt-2">Next Due Date</p>
+                        </div>
                     </div>
 
+                    {/* Relationship Goal */}
+                    <div className="bg-white rounded-xl p-8 shadow-xl">
+                        <div className="flex justify-between items-center mb-6">
+                            <h3 className="text-xl font-semibold">Relationship Goal</h3>
+                            <button className="px-6 py-2 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition">
+                                Edit
+                            </button>
+                        </div>
+                        <p className="text-gray-600">
+                            Connect every <span className="font-semibold text-emerald-700">30 days</span>
+                        </p>
+                    </div>
+
+                    {/* Quick Check-In */}
+                    <div className="bg-linear-to-br from-emerald-50 to-teal-50 rounded-xl p-8 shadow-xl">
+                        <h3 className="text-2xl font-semibold mb-6">Quick Check-In</h3>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            <button
+                                onClick={interactionHandlerVoiceCall}
+                                className="bg-white hover:shadow-xl transition-all p-8 rounded-xl flex flex-col items-center gap-4 group"
+                            >
+                                <div className="w-16 h-16 bg-blue-100 group-hover:bg-blue-200 rounded-2xl flex items-center justify-center text-3xl transition">
+                                    <FiPhoneCall />
+                                </div>
+                                <p className="font-medium">Voice Call</p>
+                            </button>
+
+                            <button
+                                onClick={interactionHandlerTextMsg}
+                                className="bg-white hover:shadow-xl transition-all p-8 rounded-xl flex flex-col items-center gap-4 group"
+                            >
+                                <div className="w-16 h-16 bg-purple-100 group-hover:bg-purple-200 rounded-2xl flex items-center justify-center text-3xl transition">
+                                    <MdOutlineTextsms />
+                                </div>
+                                <p className="font-medium">Text Message</p>
+                            </button>
+
+                            <button
+                                onClick={interactionHandlerVideoCall}
+                                className="bg-white hover:shadow-xl transition-all p-8 rounded-xl flex flex-col items-center gap-4 group"
+                            >
+                                <div className="w-16 h-16 bg-rose-100 group-hover:bg-rose-200 rounded-2xl flex items-center justify-center text-3xl transition">
+                                    <CiVideoOn />
+                                </div>
+                                <p className="font-medium">Video Call</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Recent Interactions */}
+                    <div className="bg-white rounded-3xl p-8 shadow-xl">
+                        <div className="flex justify-between items-center mb-6">
+                            <h3 className="text-xl font-semibold">Recent Interactions</h3>
+                            <button className="text-emerald-600 font-medium hover:underline">Full History →</button>
+                        </div>
+
+                        {history.length === 0 ? (
+                            <p className="text-gray-500 py-8 text-center">No interactions yet. Start connecting!</p>
+                        ) : (
+                            <div className="space-y-4">
+                                {history.map((info, index) => (
+                                    <div key={index} className="flex items-center gap-4 bg-gray-50 p-5 rounded-2xl">
+                                        <div className="text-2xl">
+                                            {info.type === "call" && "📞"}
+                                            {info.type === "text" && "💬"}
+                                            {info.type === "video" && "🎥"}
+                                        </div>
+                                        <div>
+                                            <p className="font-medium capitalize">
+                                                {info.type} with {info.name}
+                                            </p>
+                                            <p className="text-sm text-gray-500">Just now</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
                 </div>
-                <div className='w-full space-y-2 flex flex-col mt-4'>
-                    <button className='btn'>Snooze 2 weeks</button>
-                    <button className='btn'>Archive</button>
-                    <button className='btn'>Delete</button>
-                </div>
-
-
-
             </div>
-
-
-            <div className='col-span-6'>
-                <div className='grid grid-cols-3 gap-4'>
-                    <div className='bg-pink-100 p-3 flex flex-col items-center justify-center rounded-md'>
-
-                        <h3 className='font-bold text-2xl'>{expectedFriend.days_since_contact}</h3>
-                        <p>Days Since Contact</p>
-                    </div>
-                    <div className='bg-pink-100 p-3 flex flex-col items-center justify-center rounded-md'>
-
-                        <h3 className='font-bold text-2xl'>{expectedFriend.goal}</h3>
-                        <p>Goal (Days) </p>
-                    </div>
-
-                    <div className='bg-pink-100 p-3 flex flex-col items-center justify-center rounded-md'>
-
-                        <h3 className='font-bold text-2xl'>{formatDate(expectedFriend.next_due_date)}</h3>
-                        <p>Next Due</p>
-                    </div>
-                </div>
-
-                <div className='w-full bg-white shadow-md p-4 mt-4 mb-4 rounded-md '>
-                    <div className='flex items-center justify-between'>
-                        <p className='font-semibold'>Relationship Goal </p>
-                        <button className='btn'>Edit</button>
-                    </div>
-                    <p><span className='text-gray-600'>Connect Every</span> <span className='font-semibold'>30 Days</span></p>
-
-
-                </div>
-
-
-
-                <div className='bg-green-100 shadow-md p-4' >
-                    <h3>Quick Check-In</h3>
-                    <div className='w-full bg-amber-100 p-4  grid grid-cols-3 mt-4 gap-4'>
-
-                        <button onClick={interactionHandlerVoiceCall} className='bg-gray-50 rounded-md shadow-md flex flex-col items-center justify-center p-5 cursor-pointer space-y-2'>
-                            <FiPhoneCall className='text-xl' />
-                            <p>Call</p>
-                        </button>
-                        <button onClick={interactionHandlerTextMsg} className='bg-gray-50 rounded-md shadow-md flex flex-col items-center justify-center p-5 cursor-pointer space-y-2'>
-                            <MdOutlineTextsms className='text-xl' />
-                            <p>Text</p>
-                        </button>
-                        <button onClick={interactionHandlerVideoCall} className='bg-gray-50 rounded-md shadow-md flex flex-col items-center justify-center p-5 cursor-pointer space-y-2'>
-                            <CiVideoOn className='text-xl' />
-                            <p>Video</p>
-                        </button>
-
-
-
-                    </div>
-                </div>
-
-
-                <div className='w-full bg-white shadow-md p-4 mt-4 mb-4 rounded-md '>
-                    <div className='flex items-center justify-between'>
-                        <p className='font-semibold'>Recent Interactions </p>
-                        <button className='btn'>Full History</button>
-                    </div>
-
-                    <div className=' p-3 shadow-sm space-y-4 mt-4'>
-                        {
-                            history.map(info => <p className='bg-white p-2 shadow-sm '>{info.name}</p>)
-                        }
-
-                    </div>
-                </div>
-
-
-            </div>
-        </div >
+        </div>
     );
 };
 
 export default FriendDetails;
+
