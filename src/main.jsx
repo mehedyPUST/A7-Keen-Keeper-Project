@@ -11,8 +11,6 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <TimelineContext>
       <RouterProvider router={router} />
-
-      {/* Toast positioned nicely below navbar - centered */}
       <CustomToastContainer></CustomToastContainer>
     </TimelineContext>
   </StrictMode>
