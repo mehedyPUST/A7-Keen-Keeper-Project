@@ -68,7 +68,7 @@ const Stats = () => {
                             </PieChart>
                         </ResponsiveContainer>
 
-                        {/* Legend */}
+
                         <div className="flex flex-wrap justify-center gap-8 mt-10">
                             {data.map((item, index) => (
                                 <div key={index} className="flex items-center gap-3">
