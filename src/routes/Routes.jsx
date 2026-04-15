@@ -1,42 +1,3 @@
-// import { createBrowserRouter } from "react-router";
-
-// import ErrorMsg from "./errorElement/ErrorMsg";
-// import MainLayout from "../layout/MainLayout";
-// import TimeLine from "../components/pages/TimeLine";
-// import HomePage from "../components/pages/HomePage";
-// import Stats from "../components/pages/Stats";
-// import FriendDetails from "../components/pages/FriendDetails";
-
-
-// export const router = createBrowserRouter([
-//     {
-//         path: "/",
-//         element: <MainLayout></MainLayout>,
-//         children: [{
-//             index: true,
-//             element: <HomePage></HomePage>
-//         },
-
-//         {
-//             path: "/timeline",
-//             element: <TimeLine></TimeLine>
-//         },
-//         {
-//             path: "/stats",
-//             element: <Stats></Stats>
-//         },
-//         {
-//             path: "/friend-details/:friendId",
-//             Component: FriendDetails,
-//             loader: () => fetch('/friendsData.json')
-//         }
-//         ],
-//         errorElement: <ErrorMsg></ErrorMsg>
-
-//     }
-
-// ])
-
 
 import { RiseLoader } from "react-spinners";
 import { lazy, Suspense } from "react";
@@ -47,8 +8,7 @@ import MainLayout from "../layout/MainLayout";
 import TimeLine from "../components/pages/TimeLine";
 import HomePage from "../components/pages/HomePage";
 import Stats from "../components/pages/Stats";
-
-const FriendDetails = lazy(() => import("../components/pages/FriendDetails"));
+import { FriendDetails } from './FriendDetailsLazy';
 
 export const router = createBrowserRouter([
     {
@@ -84,7 +44,12 @@ export const router = createBrowserRouter([
                 loader: async () => {
                     const res = await fetch('/friendsData.json');
                     return res.json();
-                }
+                },
+                HydrateFallback: () => (
+                    <div className="flex items-center justify-center min-h-screen">
+                        <RiseLoader color="#10B981" />
+                    </div>
+                ), // Add this
             }
         ]
     }
