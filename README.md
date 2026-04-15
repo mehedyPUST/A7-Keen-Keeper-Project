@@ -1,16 +1,53 @@
-# React + Vite
+# Keen Keeper
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Keen Keeper](https://via.placeholder.com/800x400/6366F1/FFFFFF?text=Keen+Keeper)  
+<!-- Replace with a real screenshot of your app -->
 
-Currently, two official plugins are available:
+**Your personal shelf of meaningful connections.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+A clean and thoughtful web app to help you **browse, tend, and nurture** the relationships that matter most in your life.
 
-## React Compiler
+## ✨ What It Does
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Keen Keeper lets you:
+- Add important people (friends, family, mentors, etc.)
+- Track your last interaction with them
+- Get gentle reminders about relationships that need attention
+- View relationship health at a glance (On-Track vs Need Attention)
 
-## Expanding the ESLint configuration
+Never let a meaningful connection slip away again.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used
+
+- **Framework**: Next.js (React) + TypeScript
+- **Styling**: Tailwind CSS
+- **Deployment**: Vercel
+- **State Management**: (Local Storage / Zustand / Context — update this)
+- **Icons**: Lucide React (or whatever you used)
+
+## 🚀 Key Features
+
+1. **Smart Relationship Tracking**  
+   Automatically shows how many days ago you last connected with each person and highlights overdue relationships.
+
+2. **At-a-Glance Dashboard**  
+   Beautiful metric cards showing Total Friends, On-Track, Need Attention, and monthly interactions.
+
+3. **Simple & Intuitive Adding**  
+   Quick "Add a Friend" flow with relationship type and details to keep everything organized.
+
+## 🎯 Live Demo
+
+[Visit Keen Keeper →](https://a7-keen-keeper-project.vercel.app/)
+
+## 📸 Screenshots
+
+(Add 2-3 screenshots here after uploading them to your repo)
+
+## 🛠️ How to Run Locally
+
+```bash
+git clone https://github.com/yourusername/keen-keeper.git
+cd keen-keeper
+npm install
+npm run dev
