@@ -5,7 +5,9 @@ import { TimelineContextCreate } from '../../context/TimelineContextCreator';
 import VoiceCallIcon from '../voiceCallIcon/VoiceCallIcon';
 import TextMsgIcon from '../textMsgIcon/TextMsgIcon';
 import VideoCallIcon from '../videoCallIcon/VideoCallIcon';
-import { MdOutlineTextsms } from 'react-icons/md';
+import { MdDeleteForever, MdOutlineTextsms } from 'react-icons/md';
+import { IoMdNotificationsOff } from 'react-icons/io';
+import { FaBoxArchive } from 'react-icons/fa6';
 
 const FriendDetails = () => {
     const { friendId } = useParams();
@@ -108,14 +110,14 @@ const FriendDetails = () => {
                         </div>
 
                         <div className="mt-10 space-y-3">
-                            <button className="w-full py-4 bg-gray-100 hover:bg-gray-200 transition rounded-2xl font-medium">
-                                Snooze 2 weeks
+                            <button className="w-full py-4 bg-gray-100 hover:bg-gray-200 transition rounded-2xl font-medium flex items-center justify-center gap-1">
+                                <IoMdNotificationsOff />  Snooze 2 Weeks
                             </button>
-                            <button className="w-full py-4 bg-gray-100 hover:bg-gray-200 transition rounded-2xl font-medium">
-                                Archive
+                            <button className="w-full py-4 bg-gray-100 hover:bg-gray-200 transition rounded-2xl font-medium flex items-center justify-center gap-1">
+                                <FaBoxArchive />  Archive
                             </button>
-                            <button className="w-full py-4 bg-red-50 hover:bg-red-100 text-red-600 transition rounded-2xl font-medium">
-                                Delete Friend
+                            <button className="w-full py-4 bg-red-50 hover:bg-red-100 text-red-600 transition rounded-2xl font-medium flex items-center justify-center gap-1">
+                                <MdDeleteForever /> Delete Friend
                             </button>
                         </div>
                     </div>
