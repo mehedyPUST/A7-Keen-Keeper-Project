@@ -10,7 +10,7 @@ const Navbar = () => {
         <nav className='w-full mx-auto  mb-5 shadow-xl  py-5 px-10 sticky top-0 z-50 bg-white'>
             <div className='flex flex-col sm:flex-row items-center justify-between'>
                 <div>
-                    <h2 className='text-3xl font-bold '><span className='text-green-800'>Keen</span><span className='text-[#1F2937]'>Keeper</span></h2>
+                    <NavLink to="/" className='text-3xl font-bold '><span className='text-green-800'>Keen</span><span className='text-[#1F2937]'>Keeper</span></NavLink>
                 </div>
 
                 <NavItems></NavItems>
