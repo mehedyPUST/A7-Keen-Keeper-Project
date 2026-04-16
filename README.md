@@ -1,53 +1,43 @@
-# Keen Keeper
+# 🤝 Keeper - Friendship Tracker
 
-![Keen Keeper](https://via.placeholder.com/800x400/6366F1/FFFFFF?text=Keen+Keeper)  
-<!-- Replace with a real screenshot of your app -->
+**Keep your close ones closer.**  
+Keeper is a personal relationship management app that helps you nurture meaningful connections by tracking interactions, setting goals, and staying on top of your friendships.
 
-**Your personal shelf of meaningful connections.**
+## 🌐 Live Demo
 
-A clean and thoughtful web app to help you **browse, tend, and nurture** the relationships that matter most in your life.
+[Visit the Live Project](https://a7-keen-keeper-project.vercel.app/)
 
-## ✨ What It Does
+## 📖 Short Description
 
-Keen Keeper lets you:
-- Add important people (friends, family, mentors, etc.)
-- Track your last interaction with them
-- Get gentle reminders about relationships that need attention
-- View relationship health at a glance (On-Track vs Need Attention)
+In our busy lives, maintaining strong friendships often takes a backseat. Keeper solves this by providing a beautiful dashboard to organize your friends, log calls/texts/video chats, and receive reminders. It transforms abstract good intentions into actionable habits, ensuring no relationship goes cold due to neglect.
 
-Never let a meaningful connection slip away again.
+## ⚙️ Technologies Used
 
-## 🛠️ Technologies Used
+- **React.js** – Component-based UI library
+- **Tailwind CSS** – Utility-first styling for responsive design
+- **React Router DOM** – Client-side routing (Home, Timeline, Stats, Details pages)
+- **Context API** – Global state management for friends and timeline data
+- **Recharts** – Data visualization (Pie chart for interaction analytics)
+- **React Toastify** – Toast notifications for user actions
+- **Vite** – Fast build tool and development server
+- **Vercel** – Hosting and deployment platform
 
-- **Framework**: Next.js (React) + TypeScript
-- **Styling**: Tailwind CSS
-- **Deployment**: Vercel
-- **State Management**: (Local Storage / Zustand / Context — update this)
-- **Icons**: Lucide React (or whatever you used)
+## 🔑 3 Key Features
 
-## 🚀 Key Features
+### 1. 📊 Interactive Analytics Dashboard
+View your friendship health at a glance with visual cards showing total friends, on-track status, and need-attention counts. The **Stats page** features a dynamic pie chart powered by Recharts, breaking down your interactions by type (Text, Call, Video) – making it easy to see which communication channels you use most.
 
-1. **Smart Relationship Tracking**  
-   Automatically shows how many days ago you last connected with each person and highlights overdue relationships.
+### 2. 📝 Detailed Friend Profiles & Check-ins
+Every friend gets a dedicated profile page displaying:
+- **Contact history** – Days since last contact
+- **Goal & due date** – Customizable check-in frequency
+- **Preferred contact method** – Respect how they like to connect
+- **Tags & bio** – Personal notes to remember important details
+- **Quick check-in buttons** – Log a call, text, or video interaction with one click, instantly updating the timeline
 
-2. **At-a-Glance Dashboard**  
-   Beautiful metric cards showing Total Friends, On-Track, Need Attention, and monthly interactions.
-
-3. **Simple & Intuitive Adding**  
-   Quick "Add a Friend" flow with relationship type and details to keep everything organized.
-
-## 🎯 Live Demo
-
-[Visit Keen Keeper →](https://a7-keen-keeper-project.vercel.app/)
-
-## 📸 Screenshots
-
-(Add 2-3 screenshots here after uploading them to your repo)
-
-## 🛠️ How to Run Locally
-
-```bash
-git clone https://github.com/yourusername/keen-keeper.git
-cd keen-keeper
-npm install
-npm run dev
+### 3. 🚦 Smart Status & Overdue Alerts
+The app automatically calculates and color-codes each friend's status based on your last interaction vs. your goal:
+- **On-Track** (🟢 Green) – You're within the goal period
+- **Almost Due** (🟡 Amber) – Time is running out
+- **Overdue** (🔴 Red) – It's been too long
+This visual system helps you prioritize who needs your attention most, turning relationship maintenance into an actionable, guilt-free process.
