@@ -5,7 +5,8 @@ Keeper is a personal relationship management app that helps you nurture meaningf
 
 ## 🌐 Live Demo
 
-[Visit the Live Project](https://a7-keen-keeper-project.vercel.app/)
+[Visit the Live Project : Vercel](https://a7-keen-keeper-project.vercel.app/)
+[Visit the Live Project : CloudFlare](https://a7-keen-keeper-project.pages.dev/)
 
 ## 📖 Short Description
 
