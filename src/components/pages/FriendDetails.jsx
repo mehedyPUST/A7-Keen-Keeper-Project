@@ -81,6 +81,7 @@ const FriendDetails = () => {
                             <img
                                 className="w-32 h-32 rounded-full object-cover ring-3 ring-emerald-100"
                                 src={picture}
+
                                 alt={name}
                             />
                             <h2 className="mt-6 text-3xl font-semibold text-gray-900">
@@ -186,7 +187,7 @@ const FriendDetails = () => {
                     </div>
 
                     {/* Recent Interactions */}
-                    <div className="bg-white rounded-3xl p-8 shadow-xl">
+                    <div className="bg-white rounded-xl p-8 shadow-xl">
                         <div className="flex justify-between items-center mb-6">
                             <h3 className="text-xl font-semibold">Recent Interactions</h3>
                             <button className="text-emerald-600 font-medium hover:underline">Full History →</button>
@@ -197,7 +198,7 @@ const FriendDetails = () => {
                         ) : (
                             <div className="space-y-4">
                                 {history.map((info, index) => (
-                                    <div key={index} className="flex items-center gap-4 bg-gray-50 p-5 rounded-2xl">
+                                    <div key={index} className="flex items-center gap-4 bg-gray-50 p-5 rounded-xl">
                                         <div className="text-2xl">
                                             {info.type === "call" && <VoiceCallIcon></VoiceCallIcon>}
                                             {info.type === "text" && <TextMsgIcon></TextMsgIcon>}
