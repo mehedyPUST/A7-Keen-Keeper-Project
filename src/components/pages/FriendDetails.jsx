@@ -76,8 +76,8 @@ const FriendDetails = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 {/* Left Sidebar - Profile */}
                 <div className="lg:col-span-4">
-                    <div className="bg-white rounded-2xl shadow-xl p-8 sticky top-25">
-                        <div className="flex flex-col items-center text-center">
+                    <div className="    sticky top-25">
+                        <div className="flex flex-col items-center text-center  p-6 shadow-md rounded-xl">
                             <img
                                 className="w-32 h-32 rounded-full object-cover ring-3 ring-emerald-100"
                                 src={picture}
@@ -109,14 +109,14 @@ const FriendDetails = () => {
                             </div>
                         </div>
 
-                        <div className="mt-10 space-y-3">
-                            <button className="w-full py-4 bg-gray-100 hover:bg-gray-200 transition rounded-2xl font-medium flex items-center justify-center gap-1">
+                        <div className="mt-6 space-y-4">
+                            <button className="w-full py-4 bg-gray-100 shadow-md hover:bg-gray-200 transition rounded-xl font-medium flex items-center justify-center gap-1">
                                 <IoMdNotificationsOff />  Snooze 2 Weeks
                             </button>
-                            <button className="w-full py-4 bg-gray-100 hover:bg-gray-200 transition rounded-2xl font-medium flex items-center justify-center gap-1">
+                            <button className="w-full py-4 bg-gray-100 shadow-md hover:bg-gray-200 transition rounded-xl font-medium flex items-center justify-center gap-1">
                                 <FaBoxArchive />  Archive
                             </button>
-                            <button className="w-full py-4 bg-red-50 hover:bg-red-100 text-red-600 transition rounded-2xl font-medium flex items-center justify-center gap-1">
+                            <button className="w-full py-4 bg-red-50 shadow-md hover:bg-red-100 text-red-600 transition rounded-xl font-medium flex items-center justify-center gap-1">
                                 <MdDeleteForever /> Delete Friend
                             </button>
                         </div>
