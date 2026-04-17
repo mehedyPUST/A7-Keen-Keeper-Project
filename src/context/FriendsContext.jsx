@@ -1,4 +1,4 @@
-// src/context/FriendsContext.js
+
 import { useState, useEffect } from "react";
 import { FriendsContextCreate } from "./FriendsContextCreator";
 

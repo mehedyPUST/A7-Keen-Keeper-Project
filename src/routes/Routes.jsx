@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
                     <div className="flex items-center justify-center min-h-screen">
                         <RiseLoader color="#10B981" />
                     </div>
-                ), // Add this
+                ),
             }
         ]
     }
