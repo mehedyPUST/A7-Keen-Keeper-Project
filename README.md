@@ -1,6 +1,6 @@
 # 🤝 Keeper - Friendship Tracker
 
-**Keep your close ones closer.**  
+**Keep Your Close Ones Closer.**  
 Keeper is a personal relationship management app that helps you nurture meaningful connections by tracking interactions, setting goals, and staying on top of your friendships.
 
 ## 🌐 Live Demo
