@@ -21,7 +21,8 @@ In our busy lives, maintaining strong friendships often takes a backseat. Keeper
 - **Recharts** – Data visualization (Pie chart for interaction analytics)
 - **React Toastify** – Toast notifications for user actions
 - **Vite** – Fast build tool and development server
-- **Vercel** – Hosting and deployment platform
+- **Vercel** – Hosting and deployment platform 1
+- **Cloudflare** – Hosting and deployment platform 2
 
 ## 🔑 3 Key Features
 
