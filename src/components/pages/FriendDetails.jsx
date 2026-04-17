@@ -13,7 +13,7 @@ const FriendDetails = () => {
     const { friendId } = useParams();
     const friends = useLoaderData();
     const expectedFriend = friends?.find(friend => friend.id === Number(friendId));
-    const { tags, status, days_since_contact, picture, name, id, goal, next_due_date, bio, contactPreference } = expectedFriend;
+    const { tags, status, days_since_contact, picture, name, email, goal, next_due_date, bio, contactPreference } = expectedFriend;
     const getStatusColor = (status) => {
         if (status === 'Overdue') return 'bg-red-100 text-red-700 border-red-200';
         if (status === 'Almost Due') return 'bg-amber-100 text-amber-700 border-amber-200';
@@ -107,6 +107,7 @@ const FriendDetails = () => {
                             <div className='mt-4 space-y-2 text-gray-500'>
                                 <p className='italic'>"{bio}"</p>
                                 <p> Preferred: {contactPreference}</p>
+                                <p> Email: {email}</p>
                             </div>
                         </div>
 
